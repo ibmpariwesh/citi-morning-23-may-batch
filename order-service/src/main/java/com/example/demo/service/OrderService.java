@@ -18,6 +18,4 @@ public class OrderService {
 	public List<OrderVO> getOrders() {
 		return repository.findAll();
 	}
-
-	
 }

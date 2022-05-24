@@ -13,7 +13,7 @@ public class OrderServiceApplication {
 	}
 
 	@Bean
-	public RestTemplate restTemplate() {
+	public RestTemplate restTemplate() {//rest client
 		return new RestTemplate();
 	}
 }

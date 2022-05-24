@@ -17,11 +17,11 @@ public class OrderService {
 	RestTemplate template;
 	@Autowired
 	OrderRepository repository;
-	public void saveOrder(OrderVO order) {
+	public Integer saveOrder(OrderVO order) {
 		repository.save(order);
 		//send mail
-		ResponseEntity<String> response = template.getForEntity("http://localhost:8080/email?address="+order.getEmail(), String.class);
-		
+		template.getForEntity("http://localhost:8080/email?address="+order.getEmail(), String.class);
+		return order.getId();
 	}
 	public List<OrderVO> getOrders() {
 		return repository.findAll();

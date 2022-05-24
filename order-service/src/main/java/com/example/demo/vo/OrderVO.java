@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -13,7 +16,18 @@ public class OrderVO {
 	Integer id;
 	@NotBlank(message = "name cannot be blank")
 	String item;
+	@Min(value = 1)
+	@Max(value = 100000)
 	float price;
+	@Email
+	String email;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public Integer getId() {
 		return id;

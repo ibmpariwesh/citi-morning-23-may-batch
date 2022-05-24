@@ -35,6 +35,7 @@ public class OrderController {
 	List<OrderVO> getOrders() {
 		return service.getOrders();
 	}
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public Map<String, String> handleException(MethodArgumentNotValidException exception) {
 		Map<String, String> messages = new HashMap<>();
@@ -44,6 +45,5 @@ public class OrderController {
 			messages.put(fieldName, errorMessage);
 		});
 		return messages;
-		
 	}
 }

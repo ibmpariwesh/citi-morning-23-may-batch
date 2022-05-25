@@ -31,6 +31,9 @@ public class OrderController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	Integer createOrder(@Valid @RequestBody OrderVO order) {
 		System.out.println(order.getItem());
+		if(order.getEmail().equals("")) {
+			throw new IllegalArgumentException();
+		}
 		return service.saveOrder(order);
 	}
 	@GetMapping

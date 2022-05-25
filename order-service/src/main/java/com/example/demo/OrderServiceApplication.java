@@ -8,6 +8,7 @@ import org.springframework.context.annotation.EnableMBeanExport;
 import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 @SpringBootApplication
+
 public class OrderServiceApplication {
 
 	public static void main(String[] args) {
